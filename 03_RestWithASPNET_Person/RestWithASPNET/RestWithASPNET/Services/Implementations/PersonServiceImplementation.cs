@@ -1,11 +1,13 @@
 ﻿using RestWithASPNET.Model;
+using System;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace RestWithASPNET.Services.Implementations
 {
     public class PersonServiceImplementation : IPersonService
     {
         private volatile int count;
-
         public Person Create(Person person)
         {
             return person;
@@ -27,7 +29,7 @@ namespace RestWithASPNET.Services.Implementations
             return persons;
         }
 
-        public Person FindById(long id)
+        public Person FindByID(long id)
         {
             return new Person
             {
@@ -50,8 +52,8 @@ namespace RestWithASPNET.Services.Implementations
             {
                 Id = IncrementAndGet(),
                 FirstName = "Person Name" + i,
-                LastName = "Person Last Name" + i,
-                Address = "Some Address" + i,
+                LastName = "Person Last Name" +i,
+                Address = "Some Addres" + i,
                 Gender = "Male"
             };
         }
@@ -60,5 +62,5 @@ namespace RestWithASPNET.Services.Implementations
         {
             return Interlocked.Increment(ref count);
         }
-     }
+    }
 }
