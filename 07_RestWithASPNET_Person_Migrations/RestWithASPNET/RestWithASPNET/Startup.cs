@@ -83,6 +83,7 @@ namespace RestWithASPNET
                     Locations = new List<string> { "db/migrations", "db/dataset" },
                     IsEraseDisabled = true,
                 };
+                evolve.Migrate();
             } catch (Exception ex)
             {
                 Log.Error("Database migration failed!", ex);
