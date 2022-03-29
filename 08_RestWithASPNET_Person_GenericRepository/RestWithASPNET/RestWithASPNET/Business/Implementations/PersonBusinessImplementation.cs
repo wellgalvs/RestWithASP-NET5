@@ -8,9 +8,9 @@ namespace RestWithASPNET.Business.Implementations
 {
     public class PersonBusinessImplementation : IPersonBusiness
     {
-        private readonly IPersonRepository _repository;
+        private readonly IRepository<Person> _repository;
 
-        public PersonBusinessImplementation(IPersonRepository repository)
+        public PersonBusinessImplementation(IRepository<Person> repository)
         {
             _repository = repository;
         }
@@ -20,9 +20,9 @@ namespace RestWithASPNET.Business.Implementations
             return _repository.FindAll();
         }
 
-        public Person FindByID(long id)
+        public Person FindById(long id)
         {
-            return _repository.FindByID(id);
+            return _repository.FindById(id);
         }
         
         public Person Create(Person person)

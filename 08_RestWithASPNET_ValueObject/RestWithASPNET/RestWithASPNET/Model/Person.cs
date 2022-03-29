@@ -1,4 +1,5 @@
 ﻿using RestWithASPNET.Model.Base;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RestWithASPNET.Model
@@ -17,5 +18,10 @@ namespace RestWithASPNET.Model
 
         [Column("gender")]
         public string Gender { get; set; }
+
+        internal object ToList()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
