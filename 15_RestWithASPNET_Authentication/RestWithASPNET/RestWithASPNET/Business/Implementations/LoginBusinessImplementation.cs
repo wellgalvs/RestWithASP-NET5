@@ -38,7 +38,7 @@ namespace RestWithASPNET.Business.Implementations
             var refreshToken = _tokenService.GenerateRefreshToken();
 
             user.RefreshToken = refreshToken;
-            user.RefreshTokenExpiryTime = DateTime.Now.AddDays(_configuration.DaysToExpiry).ToString();
+            user.RefreshTokenExpiryTime = DateTime.Now.AddDays(_configuration.DaysToExpiry);
 
             _repository.RefreshUserInfo(user);
 
@@ -51,7 +51,9 @@ namespace RestWithASPNET.Business.Implementations
                 expirationDate.ToString(DATE_FORMAT),
                 accessToken,
                 refreshToken
-            ); user.RefreshToken = refreshToken;
+            ); 
+            
+            user.RefreshToken = refreshToken;
         }
     }
 }
