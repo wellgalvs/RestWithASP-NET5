@@ -18,10 +18,8 @@ namespace RestWithASPNET.Model
 
         [Column("gender")]
         public string Gender { get; set; }
-
-        internal object ToList()
-        {
-            throw new NotImplementedException();
-        }
+        
+        [Column("enabled")]
+        public bool Enabled { get; set; } 
     }
 }
